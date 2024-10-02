@@ -1,13 +1,13 @@
 resource "aws_security_group" "main"{
-    name = local.sg_final_name
+    name = local.sg_final_name  # expense-dev-mysql
     description = "Allow inbound traffic on port 22"
     vpc_id = var.vpc_id 
 
     egress {
         from_port = 0
         to_port = 0
-        protocol = "-1"  
-        cidr_blocks = ["0.0.0.0/0"]
+        protocol = "-1"   # it indicates everything 
+        cidr_blocks = ["0.0.0.0/0"]  # internet cidr
     }
 
 # we not giving ingress rules, becoz it gets changed time to time
